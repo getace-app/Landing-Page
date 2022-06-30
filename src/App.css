@@ -1,38 +1,283 @@
 .App {
-  text-align: center;
+    background: url("./res/pattern.png") no-repeat center 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-content {
+    padding: 20px 10% 30px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-logo {
+    height: 64px;
+    pointer-events: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-title {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.App-title h1 {
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 4em;
+    line-height: 90px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.Request-beta-form {
+    /*display: flex;*/
+    display: none;
+    justify-content: center;
+}
+
+.Request-beta-form input[type=email] {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: none;
+    padding: 18px;
+    width: 60vw;
+    max-width: 300px;
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    letter-spacing: .1em;
+    font-size: 14px;
+}
+
+.Request-beta-form button {
+    background: var(--dark-button-background-color);
+    border-radius: 8px;
+    border: none;
+    padding: 15px 20px;
+    margin: 0 10px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.App-showcase {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.App-showcase-image {
+    width: 70vw;
+}
+
+.App-how-it-works {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.App-how-it-works h1 {
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 3em;
+    line-height: 90px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.App-how-it-works-steps {
+    display: flex;
+    margin-top: 50px;
+    padding: 0 10%;
+    border-top: 3px solid #6096BA;
+}
+
+.App-how-it-works-steps div.item {
+    width: 100%;
+    padding: 0 40px;
+}
+
+.App-how-it-works-steps div div:first-child {
+    margin-top: -30px;
+    background: #6096BA;
+    border-radius: 64px;
+    width: min-content;
+    max-width: min-content;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    padding: 0 25px;
+    font-weight: 600;
+}
+
+.App-how-it-works-steps div div:last-child {
+    color: #FFFFFF;
+    margin-top: 60px;
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 36px;
+    letter-spacing: 1px;
+}
+
+.App-footer {
+    padding: 40px 10%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.App-footer-links {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.App-footer-links-multiple {
+    display: flex;
+    flex-direction: row;
+}
+
+.App-footer-links-multiple a {
+    margin-right: 15px;
+}
+
+.App-Footer-copyright {
+    color: #FFFFFF;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .App-title {
+        margin-top: 20px;
+    }
+
+    .App-title h1 {
+    }
+}
+
+@media (max-width: 767.98px) {
+    .App {
+        background: url("./res/pattern.png") no-repeat center 150px;
+        background-size: 50em;
+    }
+
+    .App-logo {
+        height: 50px;
+    }
+
+    .App-content {
+        padding: 10px 7% 30px;
+    }
+
+    .App-title {
+        margin-top: 10px;
+    }
+
+    .App-title h1 {
+        font-size: 8vw;
+        line-height: initial;
+    }
+
+    .App-showcase {
+        margin-top: 40px;
+    }
+
+    .App-showcase-image {
+        width: 80vw;
+    }
+
+    .Request-beta-form {
+        flex-direction: column;
+    }
+
+    .Request-beta-form button {
+        margin-top: 20px;
+    }
+
+    .App-how-it-works {
+        padding-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .App-how-it-works h1 {
+        font-size: 2em;
+    }
+
+    .App-how-it-works-steps {
+        border: none;
+        flex-direction: column;
+    }
+
+    .App-how-it-works-steps {
+        margin-top: 20px;
+    }
+
+    .App-how-it-works-steps div.item {
+        padding: 0;
+    }
+
+    .App-how-it-works-steps div div:first-child {
+        margin-top: 0;
+    }
+
+    .App-how-it-works-steps div div:last-child {
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+
+    .App-footer {
+        padding: 10px 10%;
+        margin-top: 10px;
+    }
+
+    .App-footer-links {
+        flex-direction: column;
+        justify-content: start;
+        width: max-content;
+    }
+
+    .App-footer-links div a {
+        justify-content: start;
+        align-items: start;
+        margin-top: 30px;
+    }
+
+    a {
+        font-size: .8em;
+    }
+
+    .App-Footer-copyright {
+        margin-top: 35px;
+    }
+}
+
+@media (min-width: 576px) {
+    .App-title h1 {
+        font-size: 3em;
+    }
 }
