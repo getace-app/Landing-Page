@@ -58,7 +58,7 @@ function App() {
                         <a href={'#contactUs'}>Contact Us</a>
                     </div>
                     <div>
-                        <a href={'https://twitter.com'}>
+                        <a href={'https://twitter.com/getaceapp'}>
                             <img src={twitterLogo} alt={"Ace Twitter"}/>
                         </a>
                     </div>
