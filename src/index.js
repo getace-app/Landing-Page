@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const submitForm = async (emailAddress) => {
+    let res = await fetch(`http://localhost:5001/ace-func/us-central1/addBetaTester?email=${emailAddress}`)
+    res = await res.json()
+    return res.result;
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App onRequestBeta={submitForm}/>
   </React.StrictMode>
 );
 
