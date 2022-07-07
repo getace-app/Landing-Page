@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const submitForm = async (emailAddress) => {
-    let res = await fetch(`http://localhost:5001/ace-func/us-central1/addBetaTester?email=${emailAddress}`)
+    let res = await fetch(`https://us-central1-ace-func.cloudfunctions.net/addBetaTester?email=${emailAddress}`)
     res = await res.json()
     return res.result;
 }
