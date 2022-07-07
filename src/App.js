@@ -72,7 +72,7 @@ function App({onRequestBeta}) {
                     </div>
                     <div className={'item'}>
                         <div>2</div>
-                        <div className={'animate__animated animate__headShake animate__delay-3s'}>Making sure you are
+                        <div className={'animate__animated animate__headShake animate__delay-3s'}>Make sure you are
                             connected to the same WiFi network as your Host, Enter the generated IP
                             address into any browser or use the QR code option
                         </div>
