@@ -1,6 +1,7 @@
 import logo from './res/logo.svg';
 import showcase from './res/header-showcase.png';
 import twitterLogo from './res/icons8_twitter.svg';
+import playIcon from './res/play-icon.png';
 import './App.css';
 import {useState} from "react";
 import validator from 'validator'
@@ -10,18 +11,19 @@ function App({onRequestBeta}) {
     const [emailAddress, setEmailAddress] = useState('')
     const [loading, setLoading] = useState(false)
     const [isValidEmail, setValidEmail] = useState(false)
+    const [watchDemo, setWatchDemo] = useState(false)
     const [buttonText, setButtonText] = useState('Request Beta Access')
     const [messageText, setMessageText] = useState('')
 
-    async function submitRequestBeta(){
-        if(validator.isEmail(emailAddress)){
+    async function submitRequestBeta() {
+        if (validator.isEmail(emailAddress)) {
             setButtonText("Loading...")
             setLoading(true)
             const result = await onRequestBeta(emailAddress)
-            if(result === 'ADDED') {
+            if (result === 'ADDED') {
                 setMessageText("Thank you for requesting to test our beta release. " +
                     "You'll receive a mail from us soon")
-            } else if(result === 'EXISTS') {
+            } else if (result === 'EXISTS') {
                 setMessageText("We got you covered! You'll receive a mail from us soon")
             } else {
                 setMessageText("We are currently unable to process this request, please try again later!")
@@ -38,7 +40,6 @@ function App({onRequestBeta}) {
             <div className={'App-content'}>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
-                    {/*<a href={'#requestBetaAccess'}>Coming Soon!</a>*/}
                     <a href={'#requestBetaAccess'}>Request Beta Access</a>
                 </header>
                 <section className={'App-title'}>
@@ -46,10 +47,10 @@ function App({onRequestBeta}) {
                     <div className={'Request-beta-form'}>
                         <label>
                             <input placeholder={'Your email address'} type={"email"} required={true}
-                                onChange={e => {
-                                    setEmailAddress(e.target.value)
-                                    setValidEmail(validator.isEmail(emailAddress))
-                                }}/>
+                                   onChange={e => {
+                                       setEmailAddress(e.target.value)
+                                       setValidEmail(validator.isEmail(emailAddress))
+                                   }}/>
                         </label>
                         <button onClick={submitRequestBeta} disabled={loading || !isValidEmail}>{buttonText}</button>
                     </div>
@@ -83,6 +84,17 @@ function App({onRequestBeta}) {
                             downloading your files!
                         </div>
                     </div>
+                </section>
+                <br/>
+                <section className={'App-watch-how-it-works'} style={{display: 'none'}}>
+                    {/*{watchDemo && <video className={'animate_animated animate__bounceIn'} controls>*/}
+                    {/*    <source src={demoVideo}  type="video/mp4"/>*/}
+                    {/*    Your browser does not support the video tag.*/}
+                    {/*</video>}*/}
+                    {!watchDemo && <button onClick={() => setWatchDemo(true)}>
+                        <img src={playIcon} alt={'Watch 3-mins demo'}/>
+                        Watch 3-mins demo
+                    </button>}
                 </section>
             </section>
             <section className={'App-footer'}>

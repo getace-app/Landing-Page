@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400&display=swap');
+
 :root {
   --color-primary: #023E8A;
   --color-primary-dark: #03045E;
   --dark-button-background-color: #141D26;
 }
 
-
 html, body {
   background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 105.08%);
   overflow-x: hidden;
+}
+
+* {
+  font-family: 'Sora', sans-serif;
 }
 
 body {

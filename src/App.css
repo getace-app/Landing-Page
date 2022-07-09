@@ -50,7 +50,6 @@
     margin: 0 10px;
     color: rgba(255, 255, 255, 0.6);
     font-weight: 500;
-    letter-spacing: .1em;
     font-size: 14px;
 }
 
@@ -62,7 +61,6 @@
     margin: 0 10px;
     color: white;
     font-weight: 400;
-    letter-spacing: 1px;
     font-size: 18px;
     cursor: pointer;
 }
@@ -77,6 +75,8 @@
     color: white;
     padding: 10px 0;
     margin-top: 30px;
+    width: 100%;
+    text-align: center;
 }
 
 .App-showcase {
@@ -96,7 +96,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .App-how-it-works h1 {
@@ -183,12 +183,42 @@ a {
     margin-bottom: 40px;
 }
 
+.App-watch-how-it-works {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.App-watch-how-it-works button {
+    background: #141D26;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: max-content;
+}
+
+.App-watch-how-it-works button img {
+    margin-right: 10px;
+}
+
+.App-watch-how-it-works video {
+    width: 40vw;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
 @media (min-width: 768px) {
     .App-title {
         margin-top: 20px;
-    }
-
-    .App-title h1 {
     }
 }
 
@@ -196,6 +226,14 @@ a {
     .App {
         background: url("./res/pattern.png") no-repeat center 150px;
         background-size: 130vw;
+    }
+
+    .App-watch-how-it-works {
+        margin-top: 20px;
+    }
+
+    .App-watch-how-it-works video {
+        width: 80vw;
     }
 }
 
@@ -227,6 +265,15 @@ a {
 
     .Request-beta-form {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .Request-beta-form label {
+        display: flex;
+    }
+
+    .Request-beta-form input {
+        width: 100% !important;
     }
 
     .Request-beta-form button {
