@@ -27,9 +27,13 @@ const analytics = getAnalytics(app);
 logEvent(analytics, 'screen_view');
 
 const submitForm = async (emailAddress) => {
-    let res = await fetch(`https://us-central1-ace-func.cloudfunctions.net/addBetaTester?email=${emailAddress}`)
-    res = await res.json()
-    return res.result;
+    try {
+        let res = await fetch(`https://us-central1-ace-func.cloudfunctions.net/addBetaTester?email=${emailAddress}`)
+        res = await res.json()
+        return res.result;
+    } catch (e){
+        return 'ERROR'
+    }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

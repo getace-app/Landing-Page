@@ -2,6 +2,7 @@ import logo from './res/logo.svg';
 import showcase from './res/header-showcase.png';
 import twitterLogo from './res/icons8_twitter.svg';
 import playIcon from './res/play-icon.png';
+import demoVideo from './res/demo.mp4'
 import './App.css';
 import {useState} from "react";
 import validator from 'validator'
@@ -16,8 +17,9 @@ function App({onRequestBeta}) {
     const [messageText, setMessageText] = useState('')
 
     async function submitRequestBeta() {
+        setMessageText('')
         if (validator.isEmail(emailAddress)) {
-            setButtonText("Loading...")
+            setButtonText("Sending request...")
             setLoading(true)
             const result = await onRequestBeta(emailAddress)
             if (result === 'ADDED') {
@@ -32,6 +34,7 @@ function App({onRequestBeta}) {
             setButtonText('Request Beta Access')
         } else {
             setMessageText("Please enter a valid email address")
+            setLoading(false)
         }
     }
 
@@ -52,7 +55,7 @@ function App({onRequestBeta}) {
                                        setValidEmail(validator.isEmail(emailAddress))
                                    }}/>
                         </label>
-                        <button onClick={submitRequestBeta} disabled={loading || !isValidEmail}>{buttonText}</button>
+                        <button onClick={submitRequestBeta} disabled={loading}>{buttonText}</button>
                     </div>
                     <h3 className={'message-text'}>{messageText}</h3>
                 </section>
@@ -86,14 +89,14 @@ function App({onRequestBeta}) {
                     </div>
                 </section>
                 <br/>
-                <section className={'App-watch-how-it-works'} style={{display: 'none'}}>
-                    {/*{watchDemo && <video className={'animate_animated animate__bounceIn'} controls>*/}
-                    {/*    <source src={demoVideo}  type="video/mp4"/>*/}
-                    {/*    Your browser does not support the video tag.*/}
-                    {/*</video>}*/}
+                <section className={'App-watch-how-it-works'}>
+                    {watchDemo && <video className={'animate_animated animate__bounceIn'} controls autoPlay={true} loop={true}>
+                        <source src={demoVideo}  type="video/mp4"/>
+                        Your browser does not support the video tag.
+                    </video>}
                     {!watchDemo && <button onClick={() => setWatchDemo(true)}>
-                        <img src={playIcon} alt={'Watch 3-mins demo'}/>
-                        Watch 3-mins demo
+                        <img src={playIcon} alt={'Watch 1-min demo'}/>
+                        Watch 1-min demo
                     </button>}
                 </section>
             </section>
