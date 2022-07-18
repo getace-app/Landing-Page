@@ -95,8 +95,8 @@ function App({onRequestBeta}) {
                         Your browser does not support the video tag.
                     </video>}
                     {!watchDemo && <button onClick={() => setWatchDemo(true)}>
-                        <img src={playIcon} alt={'Watch 1-min demo'}/>
-                        Watch 1-min demo
+                        <img src={playIcon} alt={'Watch 2-min demo'}/>
+                        Watch 2-min demo
                     </button>}
                 </section>
             </section>
