@@ -360,3 +360,13 @@ a {
     width: 20px;
     margin-left: 10px;
 }
+
+.App.BetaDownload {
+    background: white;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    color: #141D26;
+}
