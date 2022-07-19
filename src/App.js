@@ -15,6 +15,7 @@ function App({onRequestBeta}) {
     const [watchDemo, setWatchDemo] = useState(false)
     const [buttonText, setButtonText] = useState('Request Beta Access')
     const [messageText, setMessageText] = useState('')
+    const [isSuccess, setIsSuccess] = useState(false)
 
     async function submitRequestBeta() {
         setMessageText('')
@@ -25,8 +26,10 @@ function App({onRequestBeta}) {
             if (result === 'ADDED') {
                 setMessageText("Thank you for requesting to test our beta release. " +
                     "You'll receive a mail from us soon")
+                setIsSuccess(true)
             } else if (result === 'EXISTS') {
                 setMessageText("We got you covered! You'll receive a mail from us soon")
+                setIsSuccess(true)
             } else {
                 setMessageText("We are currently unable to process this request, please try again later!")
             }
@@ -57,7 +60,13 @@ function App({onRequestBeta}) {
                         </label>
                         <button onClick={submitRequestBeta} disabled={loading}>{buttonText}</button>
                     </div>
-                    <h3 className={'message-text'}>{messageText}</h3>
+                    <h3 className={'message-text'}>
+                        {messageText}
+                    </h3>
+                    {isSuccess && <span style={{fontSize : '.8em', color: 'white'}}>
+                        Kindly check your <strong>Spam</strong> folder,
+                            if you can't find a confirmation mail in your <strong>Inbox</strong>
+                    </span>}
                 </section>
                 <section className={'App-showcase'}>
                     <img src={showcase} alt={'App showcase'}
