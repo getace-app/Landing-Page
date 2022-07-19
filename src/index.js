@@ -4,8 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics, logEvent } from "firebase/analytics";
+import {initializeApp} from "firebase/app";
+import {getAnalytics, logEvent} from "firebase/analytics";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import DownloadBeta from "./DownloadBeta";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -31,16 +33,21 @@ const submitForm = async (emailAddress) => {
         let res = await fetch(`https://us-central1-ace-func.cloudfunctions.net/addBetaTester?email=${emailAddress}`)
         res = await res.json()
         return res.result;
-    } catch (e){
+    } catch (e) {
         return 'ERROR'
     }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App onRequestBeta={submitForm}/>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path="*" element={<App onRequestBeta={submitForm}/>}/>
+                <Route path="beta-download-1658236825" element={<DownloadBeta/>}/>
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
