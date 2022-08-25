@@ -6,6 +6,8 @@ import demoVideo from './res/demo.mp4'
 import './App.css';
 import {useState} from "react";
 import validator from 'validator'
+import windowsIcon from "./res/windows-brands.svg";
+import appleIcon from "./res/apple-brands.svg";
 
 function App({onRequestBeta}) {
 
@@ -46,23 +48,18 @@ function App({onRequestBeta}) {
             <div className={'App-content'}>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <a href={'#requestBetaAccess'}>Request Beta Access</a>
                 </header>
                 <section className={'App-title'}>
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className={'Request-beta-form'}>
-                        <label>
-                            <input placeholder={'Your email address'} type={"email"} required={true}
-                                   onChange={e => {
-                                       setEmailAddress(e.target.value)
-                                       setValidEmail(validator.isEmail(emailAddress))
-                                   }}/>
-                        </label>
-                        <button onClick={submitRequestBeta} disabled={loading}>{buttonText}</button>
+                        <a href={'https://getace.app/beta-releases/ace-app-win.exe'} className={'downloadBtn'}>
+                            Download for Windows<img src={windowsIcon} alt={'Windows Icon'}/>
+                        </a>
+                        <a href={'https://getace.app/beta-releases/ace-app-mac.pkg'} className={'downloadBtn'}>
+                            Download for Mac<img src={appleIcon} alt={'Apple Icon'}/>
+                        </a><br/>
                     </div>
-                    <h3 className={'message-text'}>
-                        {messageText}
-                    </h3>
+                    <p className={'message-text'}>Current version v1.0.0</p>
                     {isSuccess && <span style={{fontSize : '.8em', color: 'white'}}>
                         Kindly check your <strong>Spam</strong> folder,
                             if you can't find a confirmation mail in your <strong>Inbox</strong>
