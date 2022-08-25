@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import {initializeApp} from "firebase/app";
 import {getAnalytics, logEvent} from "firebase/analytics";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import DownloadBeta from "./DownloadBeta";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
