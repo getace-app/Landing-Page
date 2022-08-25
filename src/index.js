@@ -28,23 +28,12 @@ const analytics = getAnalytics(app);
 // log screen view
 logEvent(analytics, 'screen_view');
 
-const submitForm = async (emailAddress) => {
-    try {
-        let res = await fetch(`https://us-central1-ace-func.cloudfunctions.net/addBetaTester?email=${emailAddress}`)
-        res = await res.json()
-        return res.result;
-    } catch (e) {
-        return 'ERROR'
-    }
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="*" element={<App onRequestBeta={submitForm}/>}/>
-                <Route path="beta-download-1658236825" element={<DownloadBeta/>}/>
+                <Route path="*" element={<App />}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
