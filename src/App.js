@@ -52,10 +52,10 @@ function App({onRequestBeta}) {
                 <section className={'App-title'}>
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className={'Request-beta-form'}>
-                        <a href={'https://getace.app/beta-releases/ace-app-win.exe'} className={'downloadBtn'}>
+                        <a href={'https://getace.app/releases/ace-app-win.exe'} className={'downloadBtn'}>
                             Download for Windows<img src={windowsIcon} alt={'Windows Icon'}/>
                         </a>
-                        <a href={'https://getace.app/beta-releases/ace-app-mac.pkg'} className={'downloadBtn'}>
+                        <a href={'https://getace.app/releases/ace-app-mac.pkg'} className={'downloadBtn'}>
                             Download for Mac<img src={appleIcon} alt={'Apple Icon'}/>
                         </a><br/>
                     </div>
