@@ -4,44 +4,19 @@ import twitterLogo from './res/icons8_twitter.svg';
 import playIcon from './res/play-icon.png';
 import demoVideo from './res/demo.mp4'
 import './App.css';
-import {useState} from "react";
-import validator from 'validator'
+import {useEffect, useState} from "react";
 import windowsIcon from "./res/windows-brands.svg";
 import appleIcon from "./res/apple-brands.svg";
 
-function App({onRequestBeta}) {
+function App({downloadedAppEvent}) {
 
-    const [emailAddress, setEmailAddress] = useState('')
-    const [loading, setLoading] = useState(false)
-    const [isValidEmail, setValidEmail] = useState(false)
     const [watchDemo, setWatchDemo] = useState(false)
-    const [buttonText, setButtonText] = useState('Request Beta Access')
-    const [messageText, setMessageText] = useState('')
-    const [isSuccess, setIsSuccess] = useState(false)
 
-    async function submitRequestBeta() {
-        setMessageText('')
-        if (validator.isEmail(emailAddress)) {
-            setButtonText("Sending request...")
-            setLoading(true)
-            const result = await onRequestBeta(emailAddress)
-            if (result === 'ADDED') {
-                setMessageText("Thank you for requesting to test our beta release. " +
-                    "You'll receive a mail from us soon")
-                setIsSuccess(true)
-            } else if (result === 'EXISTS') {
-                setMessageText("We got you covered! You'll receive a mail from us soon")
-                setIsSuccess(true)
-            } else {
-                setMessageText("We are currently unable to process this request, please try again later!")
-            }
-            setLoading(false)
-            setButtonText('Request Beta Access')
-        } else {
-            setMessageText("Please enter a valid email address")
-            setLoading(false)
-        }
-    }
+    useEffect(() => {
+        document.querySelectorAll(".downloadBtn").forEach(el => {
+            el.addEventListener('click', downloadedAppEvent)
+        })
+    })
 
     return (
         <div className="App">
@@ -52,18 +27,16 @@ function App({onRequestBeta}) {
                 <section className={'App-title'}>
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className={'Request-beta-form'}>
-                        <a href={'https://getace.app/releases/ace-app-win.exe'} className={'downloadBtn'}>
+                        <a href={'https://getace.app/releases/ace-app-win.exe'} className={'downloadBtn'}
+                           data-value={'download_for_windows'}>
                             Download for Windows<img src={windowsIcon} alt={'Windows Icon'}/>
                         </a>
-                        <a href={'https://getace.app/releases/ace-app-mac.pkg'} className={'downloadBtn'}>
+                        <a href={'https://getace.app/releases/ace-app-mac.pkg'} className={'downloadBtn'}
+                           data-value={'download_for_mac'}>
                             Download for Mac<img src={appleIcon} alt={'Apple Icon'}/>
                         </a><br/>
                     </div>
-                    <p className={'message-text'}>Current version v1.0.0</p>
-                    {isSuccess && <span style={{fontSize : '.8em', color: 'white'}}>
-                        Kindly check your <strong>Spam</strong> folder,
-                            if you can't find a confirmation mail in your <strong>Inbox</strong>
-                    </span>}
+                    <p className={'message-text'}>Current version v1.0.1</p>
                 </section>
                 <section className={'App-showcase'}>
                     <img src={showcase} alt={'App showcase'}

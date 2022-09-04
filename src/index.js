@@ -27,12 +27,17 @@ const analytics = getAnalytics(app);
 // log screen view
 logEvent(analytics, 'screen_view');
 
+function downloadedAppEvent(e){
+    const tag = e.target.getAttribute('data-value')
+    logEvent(analytics, tag)
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="*" element={<App />}/>
+                <Route path="*" element={<App downloadedAppEvent={downloadedAppEvent}/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
