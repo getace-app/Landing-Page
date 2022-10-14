@@ -31,7 +31,7 @@ function App({downloadedAppEvent}) {
                            data-value={'download_for_windows'}>
                             Download for Windows<img src={windowsIcon} alt={'Windows Icon'}/>
                         </a>
-                        <a href={'https://getace.app/releases/ace-app-mac.pkg'} className={'downloadBtn'}
+                        <a href={'https://getace.app/releases/ace-app-mac.dmg'} className={'downloadBtn'}
                            data-value={'download_for_mac'}>
                             Download for Mac<img src={appleIcon} alt={'Apple Icon'}/>
                         </a><br/>
