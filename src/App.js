@@ -27,11 +27,11 @@ function App({downloadedAppEvent}) {
                 <section className={'App-title'}>
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className={'Request-beta-form'}>
-                        <a href={'https://getace.app/releases/ace-app-win.exe'} className={'downloadBtn'}
+                        <a href={'https://aceapp-releases.s3.amazonaws.com/ace-app-win.exe'} className={'downloadBtn'}
                            data-value={'download_for_windows'}>
                             Download for Windows<img src={windowsIcon} alt={'Windows Icon'}/>
                         </a>
-                        <a href={'https://getace.app/releases/ace-app-mac.dmg'} className={'downloadBtn'}
+                        <a href={'https://aceapp-releases.s3.amazonaws.com/ace-app-mac.dmg'} className={'downloadBtn'}
                            data-value={'download_for_mac'}>
                             Download for Mac<img src={appleIcon} alt={'Apple Icon'}/>
                         </a><br/>
