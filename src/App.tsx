@@ -5,30 +5,14 @@ import githubIcon from './res/github.svg';
 import playIcon from './res/play-icon.png';
 import demoVideo from './res/demo.mp4';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import windowsIcon from './res/windows-brands.svg';
 import appleIcon from './res/apple-brands.svg';
 
 const GITHUB_URL = 'https://github.com/getace-app/Ace';
 
-interface AppProps {
-    downloadedAppEvent: (e: Event) => void;
-}
-
-function App({ downloadedAppEvent }: AppProps) {
+function App() {
     const [watchDemo, setWatchDemo] = useState(false);
-
-    useEffect(() => {
-        const buttons = document.querySelectorAll('.downloadBtn');
-        buttons.forEach((el) => {
-            el.addEventListener('click', downloadedAppEvent);
-        });
-        return () => {
-            buttons.forEach((el) => {
-                el.removeEventListener('click', downloadedAppEvent);
-            });
-        };
-    }, [downloadedAppEvent]);
 
     return (
         <div className="App">
