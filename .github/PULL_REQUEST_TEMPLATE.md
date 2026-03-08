@@ -22,7 +22,7 @@
 
 ## Checklist
 
-- [ ] Code compiles without errors (`npm run build`)
-- [ ] Tests pass (`npm test`)
+- [ ] Code compiles without errors (`yarn run build`)
+- [ ] Tests pass (`yarn test`)
 - [ ] Changes are responsive / mobile-friendly
 - [ ] No unnecessary console logs or debug code
