@@ -39,7 +39,7 @@ function App() {
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className="Request-beta-form">
                         <a
-                            href="https://aceapp-releases.s3.amazonaws.com/ace-app-win.exe"
+                            href="https://github.com/getace-app/Ace/releases/download/v1.0.3/Ace-App-Setup-1.0.3.exe"
                             className="downloadBtn"
                             data-value="download_for_windows"
                         >
@@ -47,7 +47,7 @@ function App() {
                             <img src={windowsIcon} alt="Windows Icon" />
                         </a>
                         <a
-                            href="https://aceapp-releases.s3.amazonaws.com/ace-app-mac.dmg"
+                            href="https://github.com/getace-app/Ace/releases/download/v1.0.3/Ace-App-1.0.3.dmg"
                             className="downloadBtn"
                             data-value="download_for_mac"
                         >
@@ -59,7 +59,6 @@ function App() {
                         <img src={githubIcon} alt="" className="github-cta-icon" />
                         Star us on GitHub
                     </a>
-                    <p className="message-text">Current version v1.0.1</p>
                 </section>
                 <section className="App-showcase">
                     <img
