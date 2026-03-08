@@ -4,7 +4,7 @@ Landing page for [Ace](https://github.com/getace-app/Ace) — an open-source app
 
 ## Demo
 
-<video src="src/res/demo.mp4" controls></video>
+<video src="./src/res/demo.mp4" controls></video>
 
 ## Getting Started
 
