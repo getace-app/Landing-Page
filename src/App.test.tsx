@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
+const { version } = require('../package.json');
 
 describe('Hero section', () => {
     test('renders main heading', () => {
@@ -10,35 +11,31 @@ describe('Hero section', () => {
 
     test('renders open source badge linking to GitHub', () => {
         render(<App />);
-        const badge = screen.getByText(/now open source/i).closest('a');
+        const badge = screen.getByRole('link', { name: /now open source/i });
         expect(badge).toHaveAttribute('href', 'https://github.com/getace-app/Ace');
         expect(badge).toHaveAttribute('target', '_blank');
     });
 
-    test('renders version text', () => {
-        render(<App />);
-        expect(screen.getByText(/current version v1\.0\.1/i)).toBeInTheDocument();
-    });
 });
 
 describe('Download buttons', () => {
     test('renders Windows download button with correct link', () => {
         render(<App />);
-        const btn = screen.getByText(/download for windows/i).closest('a');
-        expect(btn).toHaveAttribute('href', 'https://aceapp-releases.s3.amazonaws.com/ace-app-win.exe');
+        const btn = screen.getByRole('link', { name: /download for windows/i });
+        expect(btn).toHaveAttribute('href', `https://github.com/getace-app/Ace/releases/download/v${version}/Ace-App-Setup-${version}.exe`);
         expect(btn).toHaveAttribute('data-value', 'download_for_windows');
     });
 
     test('renders Mac download button with correct link', () => {
         render(<App />);
-        const btn = screen.getByText(/download for mac/i).closest('a');
-        expect(btn).toHaveAttribute('href', 'https://aceapp-releases.s3.amazonaws.com/ace-app-mac.dmg');
+        const btn = screen.getByRole('link', { name: /download for mac/i });
+        expect(btn).toHaveAttribute('href', `https://github.com/getace-app/Ace/releases/download/v${version}/Ace-App-${version}.dmg`);
         expect(btn).toHaveAttribute('data-value', 'download_for_mac');
     });
 
     test('renders Star us on GitHub CTA', () => {
         render(<App />);
-        const cta = screen.getByText(/star us on github/i).closest('a');
+        const cta = screen.getByRole('link', { name: /star us on github/i });
         expect(cta).toHaveAttribute('href', 'https://github.com/getace-app/Ace');
     });
 });
@@ -51,7 +48,7 @@ describe('Header navigation', () => {
 
     test('renders GitHub nav link', () => {
         render(<App />);
-        const navLink = screen.getByRole('navigation').querySelector('a');
+        const navLink = within(screen.getByRole('navigation')).getByRole('link');
         expect(navLink).toHaveAttribute('href', 'https://github.com/getace-app/Ace');
         expect(navLink).toHaveTextContent('GitHub');
     });
@@ -75,7 +72,7 @@ describe('Demo video', () => {
     test('shows watch demo button initially', () => {
         render(<App />);
         expect(screen.getByText(/watch 2-min demo/i)).toBeInTheDocument();
-        expect(document.querySelector('video')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('demo-video')).not.toBeInTheDocument();
     });
 
     test('shows video after clicking watch demo button', async () => {
@@ -83,23 +80,19 @@ describe('Demo video', () => {
         render(<App />);
         await user.click(screen.getByText(/watch 2-min demo/i));
         expect(screen.queryByText(/watch 2-min demo/i)).not.toBeInTheDocument();
-        expect(document.querySelector('video')).toBeInTheDocument();
+        expect(screen.getByTestId('demo-video')).toBeInTheDocument();
     });
 });
 
 describe('Footer', () => {
     test('renders GitHub footer link', () => {
         render(<App />);
-        const footerLinks = screen.getAllByText('GitHub');
-        const footerTextLink = footerLinks.find(
-            (el) => el.closest('.App-footer-links-multiple') !== null
-        );
-        expect(footerTextLink?.closest('a')).toHaveAttribute('href', 'https://github.com/getace-app/Ace');
+        expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/getace-app/Ace');
     });
 
     test('renders Twitter footer link', () => {
         render(<App />);
-        const twitterLink = screen.getByText('Twitter').closest('a');
+        const twitterLink = screen.getByRole('link', { name: 'Twitter' });
         expect(twitterLink).toHaveAttribute('href', 'https://twitter.com/getaceapp');
     });
 

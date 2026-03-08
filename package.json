@@ -1,6 +1,6 @@
 {
   "name": "ace-landing-page",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Landing page for Ace — an open-source app for seamless local file sharing across devices.",
   "private": true,
   "license": "MIT",

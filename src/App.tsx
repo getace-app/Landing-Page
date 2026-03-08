@@ -9,7 +9,11 @@ import { useState } from 'react';
 import windowsIcon from './res/windows-brands.svg';
 import appleIcon from './res/apple-brands.svg';
 
+const APP_VERSION = require('../package.json').version;
+
 const GITHUB_URL = 'https://github.com/getace-app/Ace';
+const WINDOWS_DOWNLOAD_URL = `${GITHUB_URL}/releases/download/v${APP_VERSION}/Ace-App-Setup-${APP_VERSION}.exe`;
+const MAC_DOWNLOAD_URL = `${GITHUB_URL}/releases/download/v${APP_VERSION}/Ace-App-${APP_VERSION}.dmg`;
 
 function App() {
     const [watchDemo, setWatchDemo] = useState(false);
@@ -39,7 +43,7 @@ function App() {
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className="Request-beta-form">
                         <a
-                            href="https://aceapp-releases.s3.amazonaws.com/ace-app-win.exe"
+                            href={WINDOWS_DOWNLOAD_URL}
                             className="downloadBtn"
                             data-value="download_for_windows"
                         >
@@ -47,7 +51,7 @@ function App() {
                             <img src={windowsIcon} alt="Windows Icon" />
                         </a>
                         <a
-                            href="https://aceapp-releases.s3.amazonaws.com/ace-app-mac.dmg"
+                            href={MAC_DOWNLOAD_URL}
                             className="downloadBtn"
                             data-value="download_for_mac"
                         >
@@ -59,7 +63,6 @@ function App() {
                         <img src={githubIcon} alt="" className="github-cta-icon" />
                         Star us on GitHub
                     </a>
-                    <p className="message-text">Current version v1.0.1</p>
                 </section>
                 <section className="App-showcase">
                     <img
@@ -96,7 +99,7 @@ function App() {
                 <br />
                 <section className="App-watch-how-it-works">
                     {watchDemo && (
-                        <video className="animate__animated animate__bounceIn" controls autoPlay loop>
+                        <video data-testid="demo-video" className="animate__animated animate__bounceIn" controls autoPlay loop>
                             <source src={demoVideo} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
