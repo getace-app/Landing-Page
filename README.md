@@ -2,6 +2,8 @@
 
 Landing page for [Ace](https://github.com/getace-app/Ace) — an open-source app for seamless local file sharing across devices.
 
+**Website:** [getace.app](https://getace.app)
+
 ## Demo
 
 <a href="src/res/demo.mp4">Watch Demo</a>
