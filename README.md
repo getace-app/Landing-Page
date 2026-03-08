@@ -2,6 +2,8 @@
 
 Landing page for [Ace](https://github.com/getace-app/Ace) — an open-source app for seamless local file sharing across devices.
 
+**Website:** [getace.app](https://getace.app)
+
 ## Demo
 
 <a href="src/res/demo.mp4">Watch Demo</a>
@@ -11,20 +13,20 @@ Landing page for [Ace](https://github.com/getace-app/Ace) — an open-source app
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
-- npm
+- [Yarn](https://classic.yarnpkg.com/) (v1)
 
 ### Installation
 
 ```bash
 git clone https://github.com/getace-app/Ace-Landing-Page.git
 cd Ace-Landing-Page
-npm install
+yarn install
 ```
 
 ### Development
 
 ```bash
-npm start
+yarn start
 ```
 
 Opens [http://localhost:3000](http://localhost:3000) in your browser. The page reloads on changes.
@@ -32,7 +34,7 @@ Opens [http://localhost:3000](http://localhost:3000) in your browser. The page r
 ### Build
 
 ```bash
-npm run build
+yarn build
 ```
 
 Produces an optimized production build in the `build/` folder.

@@ -28,8 +28,8 @@ yarn-error.log*
 *.swp
 *.swo
 
-# lock files
-yarn.lock
+# npm lock file (using yarn)
+package-lock.json
 
 # beta releases
 public/beta-releases/
