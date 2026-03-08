@@ -9,7 +9,7 @@ import { useState } from 'react';
 import windowsIcon from './res/windows-brands.svg';
 import appleIcon from './res/apple-brands.svg';
 
-import { version as APP_VERSION } from '../package.json';
+const APP_VERSION = require('../package.json').version;
 
 const GITHUB_URL = 'https://github.com/getace-app/Ace';
 const WINDOWS_DOWNLOAD_URL = `${GITHUB_URL}/releases/download/v${APP_VERSION}/Ace-App-Setup-${APP_VERSION}.exe`;
