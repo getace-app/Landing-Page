@@ -15,13 +15,13 @@ cd Ace-Landing-Page
 3. Install dependencies:
 
 ```bash
-npm install
+yarn install
 ```
 
 4. Start the dev server:
 
 ```bash
-npm start
+yarn start
 ```
 
 ## Making Changes
@@ -36,13 +36,13 @@ git checkout -b feature/my-feature
 3. Run the tests to make sure nothing is broken:
 
 ```bash
-npm test
+yarn test
 ```
 
 4. Build to verify there are no compilation errors:
 
 ```bash
-npm run build
+yarn build
 ```
 
 ## Commit Guidelines

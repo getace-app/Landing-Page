@@ -28,7 +28,7 @@
     "typescript": "^5.7.3"
   },
   "scripts": {
-    "prepare": "git config core.hooksPath .githooks",
+    "postinstall": "git config core.hooksPath .githooks",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
