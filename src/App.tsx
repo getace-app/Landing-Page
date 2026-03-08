@@ -9,7 +9,11 @@ import { useState } from 'react';
 import windowsIcon from './res/windows-brands.svg';
 import appleIcon from './res/apple-brands.svg';
 
+import { version as APP_VERSION } from '../package.json';
+
 const GITHUB_URL = 'https://github.com/getace-app/Ace';
+const WINDOWS_DOWNLOAD_URL = `${GITHUB_URL}/releases/download/v${APP_VERSION}/Ace-App-Setup-${APP_VERSION}.exe`;
+const MAC_DOWNLOAD_URL = `${GITHUB_URL}/releases/download/v${APP_VERSION}/Ace-App-${APP_VERSION}.dmg`;
 
 function App() {
     const [watchDemo, setWatchDemo] = useState(false);
@@ -39,7 +43,7 @@ function App() {
                     <h1>Access files across multiple devices seamlessly</h1>
                     <div className="Request-beta-form">
                         <a
-                            href="https://github.com/getace-app/Ace/releases/download/v1.0.3/Ace-App-Setup-1.0.3.exe"
+                            href={WINDOWS_DOWNLOAD_URL}
                             className="downloadBtn"
                             data-value="download_for_windows"
                         >
@@ -47,7 +51,7 @@ function App() {
                             <img src={windowsIcon} alt="Windows Icon" />
                         </a>
                         <a
-                            href="https://github.com/getace-app/Ace/releases/download/v1.0.3/Ace-App-1.0.3.dmg"
+                            href={MAC_DOWNLOAD_URL}
                             className="downloadBtn"
                             data-value="download_for_mac"
                         >
@@ -95,7 +99,7 @@ function App() {
                 <br />
                 <section className="App-watch-how-it-works">
                     {watchDemo && (
-                        <video className="animate__animated animate__bounceIn" controls autoPlay loop>
+                        <video data-testid="demo-video" className="animate__animated animate__bounceIn" controls autoPlay loop>
                             <source src={demoVideo} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
