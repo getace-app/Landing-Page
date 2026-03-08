@@ -4,7 +4,7 @@ Landing page for [Ace](https://github.com/getace-app/Ace) — an open-source app
 
 ## Demo
 
-<video src="./src/res/demo.mp4" controls></video>
+<a href="src/res/demo.mp4">Watch Demo</a>
 
 ## Getting Started
 
@@ -40,7 +40,6 @@ Produces an optimized production build in the `build/` folder.
 ## Tech Stack
 
 - React 18 (TypeScript)
-- Firebase Analytics
 - React Router
 - Animate.css
 
